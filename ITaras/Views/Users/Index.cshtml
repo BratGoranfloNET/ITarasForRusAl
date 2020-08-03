@@ -1,0 +1,83 @@
+﻿@using ITaras.Models
+@using ITaras.Models.ViewModels
+@using Newtonsoft.Json;
+
+@model ResultList<UserViewModel>
+
+
+<link rel="stylesheet" type="text/css" href="/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<!-- Custom CSS -->
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div id="userlist" class="card-body">
+
+                <h4 class="card-title">Users</h4>
+                <h6 class="card-subtitle">ПОЛЬЗОВАТЕЛИ</h6>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-3">                       
+                        <input placeholder="Введите назв. цвета" id="color-filter" class="form-control" />
+                    </div>
+
+                    <div class="col-lg-3 col-md-4">
+                        <button type="button" class="btn waves-effect waves-light btn-dark" data-bind="click:  userService.favColorsFilter">Фильтр</button>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-4 col-md-3">                       
+                        <input placeholder="Введите назв. напитка" id="drink-filter" class="form-control" />
+                    </div>
+
+                    @*<div class="col-lg-3 col-md-4">
+                        <button type="button" class="btn waves-effect waves-light btn-dark" data-bind="click:  userService.favDrinksFilter"> Фильтр по напитку</button>
+                    </div>*@
+                </div>
+
+
+
+
+                <div class="table-responsive m-t-40">
+
+
+
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Дата рождения</th>
+                                <th>Тел.</th>
+                                <th>Цвета</th>
+                                <th>Напитки</th>
+                            </tr>
+                        </thead>
+
+                        <tbody data-bind="foreach: userService.entities">
+
+                            <tr>
+                                <td data-bind="text: FirstName"></td>
+                                <td data-bind="text: LastName"></td>
+                                <td data-bind="text: BirthDate"></td>
+                                <td data-bind="text: Phone"></td>
+                                <td data-bind="text: FavoriteColors"></td>
+                                <td data-bind="text: FavoriteDrinks"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+
+    </div>
+</div>
+
+    <script src="/itaras/userservice.js"></script>
+    
+
+
+

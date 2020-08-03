@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-ITaras-ABFE1361-D374-46E8-99FF-A9D597379E86</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\plugins\jquery-asColorPicker-master\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\assets\plugins\jquery-asColorPicker-master\.github\PULL_REQUEST_TEMPLATE.md" />
+    <None Include="wwwroot\assets\plugins\jquery-wizard-master\.github\ISSUE_TEMPLATE.md" />
+    <None Include="wwwroot\assets\plugins\jquery-wizard-master\.github\PULL_REQUEST_TEMPLATE.md" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,84 @@
+﻿@model ITaras.Models.UserViewModel
+@{
+    ViewBag.Title = "Регистрация";
+    Layout = null;
+}
+
+<div class="box box-info">
+    <div id="showError" style="display:none" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p id="ErrorTxt">Ошибка валидации!</p>
+    </div>
+    <div class="box-header with-border">
+        <button class="btn btn-sm pull-right btn-danger" type="button" id="btnCloseModal" aria-label="Close" data-dismiss="modal">X</button>
+        <h3 class="box-title">@ViewBag.Title</h3>
+    </div>
+
+    @using (Html.BeginForm("Register", "Users", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormProCreate", @class = "form-horizontal" }))
+    {
+
+        <div class="box-body">
+
+            <div class="form-group">
+                <label class="col-sm-8 control-label">Имя:<sup><i class="fa fa-star text-red"></i> </sup></label>
+                <div class="col-sm-10">
+                    <input asp-for="FirstName" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-8 control-label">Фамилия:<sup><i class="fa fa-star text-red"></i> </sup></label>
+                <div class="col-sm-10">
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-8 control-label">Дата рождения:<sup><i class="fa text-red"></i> </sup></label>
+                <div class="col-sm-10">
+                    <input placeholder="дд.мм.гггг" asp-for="BirthDate" class="form-control" maxlength="10" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-8 control-label">Телефон:<sup><i class="fa fa-star text-red"></i> </sup></label>
+                <div class="col-sm-10">
+                    <input asp-for="Phone" class="form-control" />
+                </div>
+            </div>
+
+            <h3 class="card-title m-t-10">Какой цвет вам больше нравится?</h3>
+            <div class="demo-checkbox">
+                <input type="checkbox" id="checkbox_blue" class="filled-in chk-col-blue" checked />
+                <label for="checkbox_blue">Синий</label>
+                <input type="checkbox" id="checkbox_yellow" class="filled-in chk-col-yellow" checked />
+                <label for="checkbox_yellow">Желтый</label>
+                <input type="checkbox" id="checkbox_red" class="filled-in chk-col-red" checked />
+                <label for="checkbox_red">Красный</label>
+            </div>
+
+            <h3 class="card-title m-t-10">Какой напиток вы предпочитаете?</h3>
+            <div class="demo-checkbox">
+                <input type="checkbox" id="checkbox_tea" class="filled-in chk-col-black" checked />
+                <label for="checkbox_tea">Чай</label>
+                <input type="checkbox" id="checkbox_coffe" class="filled-in chk-col-black" checked />
+                <label for="checkbox_coffe">Кофе</label>
+                <input type="checkbox" id="checkbox_juice" class="filled-in chk-col-black" checked />
+                <label for="checkbox_juice">Сок</label>
+                <input type="checkbox" id="checkbox_water" class="filled-in chk-col-black" checked />
+                <label for="checkbox_water">Вода</label>
+            </div>
+
+        </div>
+
+        <div class="box-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            <button class="btn btn-success pull-right" type="button" onclick="RegisterUser()">Регистрировать</button>
+        </div>
+
+    }
+
+</div>
+
+<script src="/itaras/userregister.js"></script>
+
